@@ -1,0 +1,22 @@
+<view class="tips">
+    <view class="tips_title">
+        <block  
+            wx:for="{{tips}}"
+            wx:key="value"
+        >
+            <view 
+                class="title_item {{item.isSelect ? 'active' : ''}}"
+                bindtap="changeItemTap"
+                data-current="{{index}}"
+            >
+                {{item.value}}
+            </view>
+        </block>
+    </view>
+
+    <view class="tips_content" >
+        <slot></slot>
+    </view>
+   
+   
+</view>

@@ -1,0 +1,46 @@
+<!--pages/goods_list/index.wxml 商品列表页-->
+<view class="pyg_goodsList" >
+    <!-- 搜素框 -->
+    <SearchInput></SearchInput>
+    <!-- 搜索框结束 -->
+
+    <!-- 切换选项卡 -->
+    <Tips tips="{{tipsData}}"
+        bindtabsItemChange="tabsItemChange"
+    >
+       <block wx:if="{{curIndex === 0}}">
+        <!-- 综合 -->
+            <view class="content_comprehensive">
+                <block wx:for="{{goodsList}}" wx:key="goods_id">
+                <!-- 点击用于跳转到详情页 -->
+                    <navigator class="comprehensive_url" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+                        <!-- 左侧照片 -->
+                        <view class="comprehensive_left">
+                            <image src="{{item.goods_small_logo}}" mode="widthFix"></image>
+                        </view>
+                        <!-- 右侧商品信息 -->
+                        <view class="comprehensive_right">
+                            <view class="goods_name">
+                                {{item.goods_name}}
+                            </view>
+                            <view class="good_price">
+                                ￥{{item.goods_price}}
+                            </view>
+                        </view>
+                    </navigator>
+                </block>
+            </view>
+        </block>
+        <!-- 销量 -->
+        <block wx:if="{{curIndex === 1}}">
+            <view>1</view>
+        </block>
+        
+        <!-- 综合 -->
+        <block wx:if="{{curIndex === 2}}">
+            <view>2</view>
+        </block>
+    </Tips>
+    
+    <!-- 切换选项卡结束 -->
+</view>

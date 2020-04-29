@@ -1,0 +1,66 @@
+/**index.wxss**/
+.index_swpier swiper{
+    width: 750rpx;
+    height: 340rpx;
+}
+.index_swpier image{
+    width: 100%;
+}
+.index_cate{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    background-color: #fafafa;
+}
+.index_cate navigator{
+   flex:1;
+   padding: 20rpx;
+}
+.index_cate navigator image{
+    width: 100%;
+}
+
+.index_floor .floor_group {
+    margin-top: 10rpx;
+}
+.index_floor .floor_group image{
+    display: block;
+}
+.index_floor .floor_group .floor_title image{
+    width: 100%;
+}
+/* 清除浮动 */
+.index_floor .floor_group .floor_info{
+    overflow: hidden;
+}
+/* 浮动布局 */
+.index_floor .floor_group .floor_info navigator{
+    float: left;
+    width: 33.33%;
+}
+
+/*2 3 两个链接加下边框*/
+.index_floor .floor_group .floor_info navigator:nth-of-type(3),
+.index_floor .floor_group .floor_info navigator:nth-of-type(2){
+    border-bottom: 10rpx solid #fff;
+}
+.index_floor .floor_group .floor_info navigator:nth-of-type(3),
+.index_floor .floor_group .floor_info navigator:nth-of-type(5){
+    border-right: 10rpx solid #fff;
+}
+/* 后四张图片链接计算高度 */
+.index_floor .floor_group .floor_info navigator:nth-last-child(-n+4){
+    height: 27.72711207vw;
+}
+/*第一张图片等比例缩放，
+所有图片加左边框
+*/
+.index_floor .floor_group .floor_info navigator image{
+    width: 100%;
+    border-left: 10rpx solid #fff;
+}
+/* 后四张图片继承高度 */
+.index_floor .floor_group .floor_info navigator image:nth-last-child(-n+4){
+   height: 100%;
+}

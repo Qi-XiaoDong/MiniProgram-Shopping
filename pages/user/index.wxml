@@ -1,0 +1,15 @@
+<view class="pyg_user">
+
+<!-- 头像区域 -->
+<view class="user_info_warp">
+  <view class="user_bg">
+    <image src="{{userImg}}"></image>
+    <view class="user_img">
+      <image src="{{userImg}}"></image>
+      <text>{{}}</text>
+    </view>
+  </view>
+</view>
+  
+<!--  -->
+</view>

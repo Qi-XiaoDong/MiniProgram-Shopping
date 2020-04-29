@@ -1,0 +1,55 @@
+/* pages/category/index.wxss */
+page{
+    height: 100%;
+}
+page .pyg_category{
+    height: 100%;
+}
+page .pyg_category .category_main{
+    height: calc(100vh - 90rpx);
+    display: flex;
+}
+page .pyg_category .category_main .left_menu{
+    flex: 2;
+}
+page .pyg_category .category_main .left_menu .menu_item{
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 30rpx;
+}
+page .pyg_category .category_main .left_menu .active{
+    color: red;
+}
+page .pyg_category .category_main .right_content{
+    flex: 5;
+}
+/* 右侧 */
+page .pyg_category .category_main .right_content .content_item {
+    text-align: center;
+}
+
+page .pyg_category .category_main .right_content .content_item .right_title{
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+page .pyg_category .category_main .right_content .content_item .right_title::after{
+    content: "/";
+}
+
+page .pyg_category .category_main .right_content .content_item .right_title::before{
+    content: "/";
+}
+
+page .pyg_category .category_main .right_content .content_item .right_info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+page .pyg_category .category_main .right_content .content_item .right_info navigator{
+   width: 33.33%;
+}
+page .pyg_category .category_main .right_content .content_item .right_info navigator image{
+    width: 50%;
+}

@@ -1,0 +1,35 @@
+
+.comprehensive_url{
+    display: flex;
+    border-bottom: 1px solid #ccd;
+    padding: 20rpx 0;
+}
+
+.comprehensive_url:last-child{
+    border-bottom: 1px solid transparent;
+}
+.content_comprehensive .comprehensive_left{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content_comprehensive .comprehensive_left image{
+    width: 70%;
+}
+.content_comprehensive .comprehensive_right{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.content_comprehensive .comprehensive_right .goods_name{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.content_comprehensive .comprehensive_right .good_price{
+   font-size: 32rpx;
+   color: var(--themeColor);
+}

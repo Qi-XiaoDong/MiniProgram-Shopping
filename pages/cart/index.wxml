@@ -1,0 +1,117 @@
+<view class="pyg_cart">
+    <!-- 获取收获地址按钮 收获地址不存在时显示-->
+    <view class="cart_address-btn" wx:if="{{!address.userName}}">
+        <button 
+            type="primary" plain
+            bindtap="hadleChooseAddress" 
+        >
+            获取收获地址
+        </button>
+    </view>
+
+    <!-- 收获地址 -->
+    <view class="cart_address-info" wx:else>
+        <view class="cart_address">
+            <view class="cart_address-left">
+                <view class="userName">
+                    收货人 : {{address.userName}}
+                </view>
+                <view class="all">
+                    {{address.all}}
+                </view>
+            </view>
+
+             <view class="cart_address-phone">
+                {{address.telNumber}}
+            </view>
+        </view>
+    </view>
+
+    <!-- 购物车 -->
+    <view class="cart_content">
+        <view class="cart_title">
+            购物车
+        </view>
+        <!--有商品-->
+        <block wx:if="{{cartData.length > 0}}">
+            <view class="cart_main" >
+                <view class="cart_item"
+                    wx:for="{{cartData.goods}}"
+                    wx:key="goods_id"
+                >
+                    <!-- 复选框 -->
+                    <view class="cart_chk_warp">
+                        <checkbox-group bindchange="handleCheckout" data-goodsid="{{item.goods_id}}">
+                            <checkbox value="{{item.goods_id}}" checked="{{item.isSelect}}"></checkbox>
+                        </checkbox-group>
+                    </view>
+                    <!-- 商品图片 -->
+                    <navigator class="cart_img_warp">
+                        <image class="" src="{{item.goods_small_logo}}" mode="widthFix" ></image>
+                    </navigator>
+                    <!-- 商品信息 -->
+                    <view class="cart_info_warp">
+                        <view class="goods_name">
+                            {{item.goods_name}}
+                        </view>
+                        <view class="goods_price_warp">
+                            <view class="goods_price">
+                                ￥{{item.goods_price}}
+                            </view>
+                            <view class="cart_toods">
+                                <view class="num_edit" bindtap="handNumChange" 
+                                    data-goodsid="{{item.goods_id}}"
+                                    data-type="-1"
+                                >-</view>
+                                <view class="num">
+                                    <input type="number" value="{{item.num}}" 
+                                        data-goodsid="{{item.goods_id}}"
+                                        bindblur="handInputValue"
+                                    />
+                                </view>
+                                <view class="num_edit" bindtap="handNumChange" 
+                                    data-goodsid="{{item.goods_id}}"
+                                    data-type="1"
+                                >+</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        
+        <!--没有商品时显示的界面-->
+        <block wx:else>
+            <image class="no_goods" 
+                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587987481135&di=7dd7dbefb779c4f2cda1a3a88c7ad954&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170401%2F2f523043409747a9b68c1bcf6fd353a5_th.jpeg" 
+                mode="widthFix"
+            ></image>
+        </block> 
+    </view>
+    
+    <!--结算-->
+    <view class="cart_footer">
+        <!--全选-->
+        <view class="all_select_warp" hover-class="none" hover-stop-propagation="false">
+            <checkbox-group  bindchange="allSelectChange">
+                <checkbox checked="{{allSelect}}" disabled="{{cartData.length === 0}}">全选</checkbox>
+            </checkbox-group>
+        </view>
+        <!--合计-->
+        <view class="all">
+            <view class="all_price">
+                合计: ￥ <text class="">{{allPrice}}</text>
+            </view>
+            <view class="">
+                包含运费
+            </view>
+        </view>
+        <!-- 点击跳转到结算页面 -->
+        <view class="to_pay">
+          <navigator url="/pages/pay/index">
+                结算({{selectNum}})
+          </navigator>
+        </view>
+        
+    </view>
+</view>
